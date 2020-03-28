@@ -27,32 +27,32 @@ import jxl.write.WritableWorkbook;
 public class FromDbToExcel {
 	ChartPanel frame1;
 	public  FromDbToExcel(){
-		CategoryDataset dataset = getDataSet();//½«»ñµÃµÄÊı¾İ´«µİ¸øCategoryDatasetÀàµÄ¶ÔÏó
+		CategoryDataset dataset = getDataSet();//å°†è·å¾—çš„æ•°æ®ä¼ é€’ç»™CategoryDatasetç±»çš„å¯¹è±¡
        JFreeChart chart = ChartFactory.createBarChart3D(
-      		                 "ÒßÇéÍ³¼Æ±í", // Í¼±í±êÌâ
-                           "Í³¼ÆÏîÄ¿", // Ä¿Â¼ÖáµÄÏÔÊ¾±êÇ©
-                           "ÈËÊı", // ÊıÖµÖáµÄÏÔÊ¾±êÇ©
-                           dataset, // Êı¾İ¼¯
-                           PlotOrientation.VERTICAL, // Í¼±í·½Ïò£ºË®Æ½¡¢´¹Ö±
-                           true, // ÊÇ·ñÏÔÊ¾Í¼Àı(¶ÔÓÚ¼òµ¥µÄÖù×´Í¼±ØĞëÊÇfalse)
-                           false,  // ÊÇ·ñÉú³É¹¤¾ß
-                           false  // ÊÇ·ñÉú³ÉURLÁ´½Ó
+      		                 "ç–«æƒ…ç»Ÿè®¡è¡¨", // å›¾è¡¨æ ‡é¢˜
+                           "ç»Ÿè®¡é¡¹ç›®", // ç›®å½•è½´çš„æ˜¾ç¤ºæ ‡ç­¾
+                           "äººæ•°", // æ•°å€¼è½´çš„æ˜¾ç¤ºæ ‡ç­¾
+                           dataset, // æ•°æ®é›†
+                           PlotOrientation.VERTICAL, // å›¾è¡¨æ–¹å‘ï¼šæ°´å¹³ã€å‚ç›´
+                           true, // æ˜¯å¦æ˜¾ç¤ºå›¾ä¾‹(å¯¹äºç®€å•çš„æŸ±çŠ¶å›¾å¿…é¡»æ˜¯false)
+                           false,  // æ˜¯å¦ç”Ÿæˆå·¥å…·
+                           false  // æ˜¯å¦ç”ŸæˆURLé“¾æ¥
                            );
-       CategoryPlot plot=chart.getCategoryPlot();//»ñÈ¡Í¼±íÇøÓò¶ÔÏó
-       CategoryAxis domainAxis=plot.getDomainAxis();         //Ë®Æ½µ×²¿ÁĞ±í
-        domainAxis.setLabelFont(new Font("ºÚÌå",Font.BOLD,14));         //Ë®Æ½µ×²¿±êÌâ
-        domainAxis.setTickLabelFont(new Font("ËÎÌå",Font.BOLD,12));  //´¹Ö±±êÌâ
-        ValueAxis rangeAxis=plot.getRangeAxis();//»ñÈ¡Öù×´
-        rangeAxis.setLabelFont(new Font("ºÚÌå",Font.BOLD,15));
-         chart.getLegend().setItemFont(new Font("ºÚÌå", Font.BOLD, 15));
-         chart.getTitle().setFont(new Font("ËÎÌå",Font.BOLD,20));//ÉèÖÃ±êÌâ×ÖÌå
+       CategoryPlot plot=chart.getCategoryPlot();//è·å–å›¾è¡¨åŒºåŸŸå¯¹è±¡
+       CategoryAxis domainAxis=plot.getDomainAxis();         //æ°´å¹³åº•éƒ¨åˆ—è¡¨
+        domainAxis.setLabelFont(new Font("é»‘ä½“",Font.BOLD,14));         //æ°´å¹³åº•éƒ¨æ ‡é¢˜
+        domainAxis.setTickLabelFont(new Font("å®‹ä½“",Font.BOLD,12));  //å‚ç›´æ ‡é¢˜
+        ValueAxis rangeAxis=plot.getRangeAxis();//è·å–æŸ±çŠ¶
+        rangeAxis.setLabelFont(new Font("é»‘ä½“",Font.BOLD,15));
+         chart.getLegend().setItemFont(new Font("é»‘ä½“", Font.BOLD, 15));
+         chart.getTitle().setFont(new Font("å®‹ä½“",Font.BOLD,20));//è®¾ç½®æ ‡é¢˜å­—ä½“
          
-         frame1=new ChartPanel(chart,true);  //ÕâÀïÒ²¿ÉÒÔÓÃchartFrame,¿ÉÒÔÖ±½ÓÉú³ÉÒ»¸ö¶ÀÁ¢µÄFrame
+         frame1=new ChartPanel(chart,true);  //è¿™é‡Œä¹Ÿå¯ä»¥ç”¨chartFrame,å¯ä»¥ç›´æ¥ç”Ÿæˆä¸€ä¸ªç‹¬ç«‹çš„Frame
 	}
 	
 	@SuppressWarnings("unlikely-arg-type")
 	private CategoryDataset getDataSet() {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		int count1=0;
         int count2=0;
         int count3=0;
@@ -71,30 +71,29 @@ public class FromDbToExcel {
         	Label confirm_i= new Label(9, i+1, list.get(i).getConfirm()+"");
         	Label state_i= new Label(10, i+1, list.get(i).getState()+"");
         	
-        	if(wuhan_i.equals("ÊÇ"))
+        	if(wuhan_i.equals("æ˜¯"))
         		count1++;
-        	if(hubei_i.equals("ÊÇ"))
+        	if(hubei_i.equals("æ˜¯"))
         		count2++;
-        	if(wuhancontact_i.equals("ÊÇ"))
+        	if(wuhancontact_i.equals("æ˜¯"))
         		count3++;
-        	if(hubeicontact_i.equals("ÊÇ"))
+        	if(hubeicontact_i.equals("æ˜¯"))
         		count4++;
-        	if(back_i.equals("ÊÇ"))
+        	if(back_i.equals("æ˜¯"))
         		count5++;
-        	if(confirm_i.equals("ÊÇ"))
+        	if(confirm_i.equals("æ˜¯"))
         		count6++;
-        	if(state_i.equals("ÒÑÉóºË"))
+        	if(state_i.equals("å·²å®¡æ ¸"))
         		count7++;
         }
-        count1=100;count2=342;count3=45;count4=65;count5=0;count6=120;count7=78;
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(count1, "ÊÇ·ñÔÚÎäºº", "ÊÇ·ñÔÚÎäºº");
-        dataset.addValue(count2, "ÊÇ·ñºş±±£¨²»º¬Îäºº£©", "ÊÇ·ñºş±±£¨²»º¬Îäºº£©");
-        dataset.addValue(count3, "ÊÇ·ñÓĞÎäºº½Ó´¥Ê·", "ÊÇ·ñÓĞÎäºº½Ó´¥Ê·");
-        dataset.addValue(count4, "ÊÇ·ñÓĞºş±±½Ó´¥Ê·", "ÊÇ·ñÓĞºş±±½Ó´¥Ê·");
-        dataset.addValue(count5, "ÊÇ·ñ·µĞ£", "ÊÇ·ñ·µĞ£");
-        dataset.addValue(count6, "ÊÇ·ñÓĞÒÉËÆ²¡Ö¢", "ÊÇ·ñÓĞÒÉËÆ²¡Ö¢");
-        dataset.addValue(count7, "ÊÇ·ñÒÑÈ·ÈÏ±»¸ĞÈ¾", "ÊÇ·ñÒÑÈ·ÈÏ±»¸ĞÈ¾");
+        dataset.addValue(count1, "æ˜¯å¦åœ¨æ­¦æ±‰", "æ˜¯å¦åœ¨æ­¦æ±‰");
+        dataset.addValue(count2, "æ˜¯å¦æ¹–åŒ—ï¼ˆä¸å«æ­¦æ±‰ï¼‰", "æ˜¯å¦æ¹–åŒ—ï¼ˆä¸å«æ­¦æ±‰ï¼‰");
+        dataset.addValue(count3, "æ˜¯å¦æœ‰æ­¦æ±‰æ¥è§¦å²", "æ˜¯å¦æœ‰æ­¦æ±‰æ¥è§¦å²");
+        dataset.addValue(count4, "æ˜¯å¦æœ‰æ¹–åŒ—æ¥è§¦å²", "æ˜¯å¦æœ‰æ¹–åŒ—æ¥è§¦å²");
+        dataset.addValue(count5, "æ˜¯å¦è¿”æ ¡", "æ˜¯å¦è¿”æ ¡");
+        dataset.addValue(count6, "æ˜¯å¦æœ‰ç–‘ä¼¼ç—…ç—‡", "æ˜¯å¦æœ‰ç–‘ä¼¼ç—…ç—‡");
+        dataset.addValue(count7, "æ˜¯å¦å·²ç¡®è®¤è¢«æ„ŸæŸ“", "æ˜¯å¦å·²ç¡®è®¤è¢«æ„ŸæŸ“");
         return dataset;
 		
 	}
@@ -106,32 +105,32 @@ public class FromDbToExcel {
 	public static void main(String[] args) {
 		try {
 			WritableWorkbook wwb = null;
-			// ´´½¨¿ÉĞ´ÈëµÄExcel¹¤×÷²¾
+			// åˆ›å»ºå¯å†™å…¥çš„Excelå·¥ä½œç°¿
             String fileName = "F://test1//yiqing.xls";
             File file=new File(fileName);
             if (!file.exists()) {
                 file.createNewFile();
             }
-          //ÒÔfileNameÎªÎÄ¼şÃûÀ´´´½¨Ò»¸öWorkbook
+          //ä»¥fileNameä¸ºæ–‡ä»¶åæ¥åˆ›å»ºä¸€ä¸ªWorkbook
             wwb = Workbook.createWorkbook(file);
             
-         // ´´½¨¹¤×÷±í
+         // åˆ›å»ºå·¥ä½œè¡¨
             WritableSheet ws = wwb.createSheet("Test Shee 1", 0);
             
-          //²éÑ¯Êı¾İ¿âÖĞËùÓĞµÄÊı¾İ
+          //æŸ¥è¯¢æ•°æ®åº“ä¸­æ‰€æœ‰çš„æ•°æ®
             List<Yiq> list= YiqService.getAllByDb();
-            //Òª²åÈëµ½µÄExcel±í¸ñµÄĞĞºÅ£¬Ä¬ÈÏ´Ó0¿ªÊ¼
-            Label Id= new Label(0, 0, "Ñ§ºÅ");//±íÊ¾µÚ
-            Label name= new Label(1, 0, "ĞÕÃû");
-            Label college= new Label(2, 0, "°à¼¶");
-            Label class1= new Label(3, 0, "°à¼¶");
-            Label wuhan= new Label(4, 0, "Îäºº¼®");
-            Label hubei= new Label(5, 0, "ºş±±¼®");
-            Label wuhancontact= new Label(6, 0, "Îäºº½Ó´¥Ê·");
-            Label hubeicontact= new Label(7, 0, "ºş±±½Ó´¥Ê·");
-            Label back= new Label(8, 0, "ÊÇ·ñ·µĞ£");
-            Label confirm= new Label(9, 0, "ÒÉËÆ");
-            Label state= new Label(10, 0, "È·Õï");
+            //è¦æ’å…¥åˆ°çš„Excelè¡¨æ ¼çš„è¡Œå·ï¼Œé»˜è®¤ä»0å¼€å§‹
+            Label Id= new Label(0, 0, "å­¦å·");//è¡¨ç¤ºç¬¬
+            Label name= new Label(1, 0, "å§“å");
+            Label college= new Label(2, 0, "ç­çº§");
+            Label class1= new Label(3, 0, "ç­çº§");
+            Label wuhan= new Label(4, 0, "æ­¦æ±‰ç±");
+            Label hubei= new Label(5, 0, "æ¹–åŒ—ç±");
+            Label wuhancontact= new Label(6, 0, "æ­¦æ±‰æ¥è§¦å²");
+            Label hubeicontact= new Label(7, 0, "æ¹–åŒ—æ¥è§¦å²");
+            Label back= new Label(8, 0, "æ˜¯å¦è¿”æ ¡");
+            Label confirm= new Label(9, 0, "ç–‘ä¼¼");
+            Label state= new Label(10, 0, "ç¡®è¯Š");
             
             ws.addCell(Id);
             ws.addCell(name);
@@ -176,18 +175,18 @@ public class FromDbToExcel {
             	ws.addCell(confirm_i);
             	ws.addCell(state_i);
             }
-          //Ğ´½øÎÄµµ
+          //å†™è¿›æ–‡æ¡£
             wwb.write();
-           // ¹Ø±ÕExcel¹¤×÷²¾¶ÔÏó
-            System.out.println("Êı¾İµ¼³ö³É¹¦!");
+           // å…³é—­Excelå·¥ä½œç°¿å¯¹è±¡
+            System.out.println("æ•°æ®å¯¼å‡ºæˆåŠŸ!");
             wwb.close();
 		}catch (Exception e) {
 			 // TODO Auto-generated catch block
             e.printStackTrace();
 		}
-		JFrame frame=new JFrame("ÒßÇéÍ³¼Æ±í");
+		JFrame frame=new JFrame("ç–«æƒ…ç»Ÿè®¡è¡¨");
 		frame.setLayout(new GridLayout(2,2,10,10));
-		frame.add(new FromDbToExcel().getChartPanel());   //Ìí¼ÓÖùĞÎÍ¼
+		frame.add(new FromDbToExcel().getChartPanel());   //æ·»åŠ æŸ±å½¢å›¾
 		frame.setBounds(0, 0, 900, 800);
 		frame.setVisible(true);
 	}
