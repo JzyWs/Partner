@@ -2,15 +2,22 @@
 使用4个空格作为缩进
 
 二、变量命名
-变量名使用拼音或者英语，按照其具体含义进行命名
-例如：wuhan：武汉
-          nowTime：现在的时间
-     wuhancontact：武汉接触史
+变量名使用拼音或者英语，按照其具体含义进行命名，有的临时变量使用count1~count7命名
+例如：
+	wuhan：武汉
+        nowTime：现在的时间
+        wuhancontact：武汉接触史
+ 	Name_i：获取数据库中的第i行的姓名
+ 	count1：武汉籍的人数
+	count2：湖北籍的人数（非武汉）
 
 三、函数、类命名
 函数和类的命名取决于函数或者类的功能
-例如：BaseDao：数据库基础操作类
-           isEffectiveDate（）：判断时间是否符合约束条件
+例如：
+	BaseDao：数据库基础操作类
+        isEffectiveDate（）：判断时间是否符合约束条件
+	YiqService():读取数据库的服务类
+	FromDbToExcel()：导出Excel、可视化类
 
 四、空行规则
 在作用相同但是变量名不同的语句间加入空行
